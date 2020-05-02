@@ -33,7 +33,6 @@ public class Deck {
     public Card dealCard(){
         Card card = cardDeck.get(0);
         cardDeck.remove(0);
-        System.out.println(card.getRank() + " " + card.getSuit() + " " + card.getValueFromCard());
         return card;
     }
 
