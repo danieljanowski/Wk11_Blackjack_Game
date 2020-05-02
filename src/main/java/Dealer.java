@@ -24,4 +24,19 @@ public class Dealer {
         this.hand.add(card);
     }
 
+    public int cardsValue() {
+        int value = 0;
+        for (Card card : this.hand) {
+            value += card.getValueFromCard();
+        }
+        return value;
+    }
+
+    public void printCards() {
+        System.out.print("Dealer");
+        for (Card card : this.hand) {
+            System.out.print(": " + card.getRank() + " " + card.getSuit());
+        }
+        System.out.println(" - " + cardsValue() + " points");
+    }
 }

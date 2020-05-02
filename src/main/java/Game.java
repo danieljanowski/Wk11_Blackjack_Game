@@ -19,4 +19,13 @@ public class Game {
         }
     }
 
+    public boolean dealerWins() {
+        if (dealer.cardsValue() > player1.cardsValue()) return true;
+        else return false;
+    }
+
+    public boolean draw(){
+        if (dealer.cardsValue() == player1.cardsValue()) return true;
+        else return false;
+    }
 }
