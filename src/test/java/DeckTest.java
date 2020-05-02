@@ -32,6 +32,8 @@ public class DeckTest {
 
     @Test
     public void testDealCard(){
+        deck.populateCards();
+        deck.shuffleDeck();
         deck.dealCard();
         assertEquals(51, deck.countCards());
     }
