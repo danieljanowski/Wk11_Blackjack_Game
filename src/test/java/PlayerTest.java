@@ -35,4 +35,13 @@ public class PlayerTest {
         assertEquals(18, player1.cardsValue());
     }
 
+    @Test
+    public void ableToClearCards(){
+        player1.takeCard(card1);
+        player1.takeCard(card2);
+        assertEquals(2, player1.cardsCount());
+        player1.clearCards();
+        assertEquals(0, player1.cardsCount());
+    }
+
 }

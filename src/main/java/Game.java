@@ -28,4 +28,9 @@ public class Game {
         if (dealer.cardsValue() == player1.cardsValue()) return true;
         else return false;
     }
+
+    public void clearCards() {
+        dealer.clearCards();
+        player1.clearCards();
+    }
 }

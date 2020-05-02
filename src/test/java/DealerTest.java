@@ -36,4 +36,13 @@ public class DealerTest {
         assertEquals(9, dealer.cardsValue());
     }
 
+    @Test
+    public void ableToClearCards(){
+        dealer.takeCard(card1);
+        dealer.takeCard(card2);
+        assertEquals(2, dealer.cardsCount());
+        dealer.clearCards();
+        assertEquals(0, dealer.cardsCount());
+    }
+
 }

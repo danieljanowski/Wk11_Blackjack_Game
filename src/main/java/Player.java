@@ -34,4 +34,8 @@ public class Player {
         }
         System.out.println(" - " + cardsValue() + " points");
     }
+
+    public void clearCards() {
+        this.hand.clear();
+    }
 }

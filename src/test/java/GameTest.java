@@ -65,4 +65,14 @@ public class GameTest {
         assertEquals(false, game.dealerWins());
         assertEquals(true, game.draw());
     }
+
+    @Test
+    public void ableToClearHands(){
+        game.deal2Cards();
+        assertEquals(2, player1.cardsCount());
+        assertEquals(2, dealer.cardsCount());
+        game.clearCards();
+        assertEquals(0, player1.cardsCount());
+        assertEquals(0, dealer.cardsCount());
+    }
 }
