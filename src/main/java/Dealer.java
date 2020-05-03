@@ -21,6 +21,20 @@ public class Dealer {
         for (Card card : this.hand) {
             value += card.getValueFromCard();
         }
+        if (value > 21 & numberOfAces() > 0){
+            for (int i=0; i < numberOfAces(); i++){
+                value -= 10;
+                if (value <= 21) break;
+            }
+        }
+        return value;
+    }
+
+    public int numberOfAces(){
+        int value = 0;
+        for (Card card : this.hand) {
+            if (card.getRank() == Rank.ACE) value++;
+        }
         return value;
     }
 
@@ -30,6 +44,13 @@ public class Dealer {
             System.out.print(": " + card.getRank() + " " + card.getSuit());
         }
         System.out.println(" - " + cardsValue() + " points");
+    }
+
+    public void showFirstCard(){
+        System.out.print("Dealer");
+        Card card = this.hand.get(0);
+        System.out.print(": " + card.getRank() + " " + card.getSuit());
+        System.out.println(" - " + card.getValueFromCard() + " points");
     }
 
     public void clearCards() {

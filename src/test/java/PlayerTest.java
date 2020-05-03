@@ -9,6 +9,8 @@ public class PlayerTest {
     private Player player1;
     private Card card1;
     private Card card2;
+    private Card card3;
+    private Card card4;
 
 
     @Before
@@ -19,6 +21,8 @@ public class PlayerTest {
         player1 = new Player("Daniel");
         card1 = new Card(Suit.SPADES, Rank.EIGHT);
         card2 = new Card(Suit.DIAMONDS, Rank.KING);
+        card3 = new Card(Suit.HEARTS, Rank.ACE);
+        card4 = new Card(Suit.CLUBS, Rank.ACE);
     }
 
     @Test
@@ -33,6 +37,11 @@ public class PlayerTest {
         player1.takeCard(card1);
         player1.takeCard(card2);
         assertEquals(18, player1.cardsValue());
+        player1.takeCard(card3);
+        assertEquals(19, player1.cardsValue());
+        player1.takeCard(card4);
+        assertEquals(20, player1.cardsValue());
+
     }
 
     @Test
@@ -44,4 +53,11 @@ public class PlayerTest {
         assertEquals(0, player1.cardsCount());
     }
 
+    @Test
+    public void canCountAces(){
+        player1.takeCard(card3);
+        assertEquals(1, player1.numberOfAces());
+        player1.takeCard(card4);
+        assertEquals(2, player1.numberOfAces());
+    }
 }

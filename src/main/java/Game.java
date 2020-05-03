@@ -1,3 +1,5 @@
+import java.util.concurrent.TimeUnit;
+
 public class Game {
 
     private Deck deck;
@@ -20,7 +22,7 @@ public class Game {
     }
 
     public boolean dealerWins() {
-        if (dealer.cardsValue() > player1.cardsValue()) return true;
+        if (dealer.cardsValue() > player1.cardsValue() & dealer.cardsValue() <= 21) return true;
         else return false;
     }
 
@@ -32,5 +34,28 @@ public class Game {
     public void clearCards() {
         dealer.clearCards();
         player1.clearCards();
+    }
+
+    public void dealCardToPlayer() {
+        Card card = this.deck.dealCard();
+        this.player1.takeCard(card);
+    }
+
+    public boolean playerBusted() {
+        if (player1.cardsValue() > 21) return true;
+        else return false;
+    }
+
+    public void dealerMove() throws InterruptedException {
+        if (dealer.cardsValue()<16) {
+            TimeUnit.SECONDS.sleep(1);
+            Card card = this.deck.dealCard();
+            this.dealer.takeCard(card);
+
+            System.out.println("");
+
+            dealer.printCards();
+            player1.printCards();
+        }
     }
 }
