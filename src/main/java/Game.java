@@ -23,11 +23,12 @@ public class Game {
 
     public boolean dealerWins() {
         if (dealer.cardsValue() > player1.cardsValue() & dealer.cardsValue() <= 21) return true;
+        else if (dealer.cardsValue() == 21 & player1.cardsValue() == 21 & dealer.hasBlackjack()) return true;
         else return false;
     }
 
     public boolean draw(){
-        if (dealer.cardsValue() == player1.cardsValue()) return true;
+        if (dealer.cardsValue() == player1.cardsValue() & !dealer.hasBlackjack() & !player1.hasBlackjack()) return true;
         else return false;
     }
 

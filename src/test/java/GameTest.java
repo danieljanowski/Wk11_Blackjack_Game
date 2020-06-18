@@ -13,6 +13,8 @@ public class GameTest {
     private Card card2;
     private Card card3;
     private Card card4;
+    private Card card5;
+    private Card card6;
 
     @Before
     public void before(){
@@ -26,6 +28,8 @@ public class GameTest {
         card2 = new Card(Suit.DIAMONDS, Rank.TWO);
         card3 = new Card(Suit.SPADES, Rank.EIGHT);
         card4 = new Card(Suit.DIAMONDS, Rank.KING);
+        card5 = new Card(Suit.DIAMONDS, Rank.ACE);
+        card6 = new Card(Suit.CLUBS, Rank.QUEEN);
     }
 
     @Test
@@ -43,6 +47,26 @@ public class GameTest {
         dealer.takeCard(card3);
         dealer.takeCard(card4);
         assertEquals(true, game.dealerWins());
+        assertEquals(false, game.draw());
+    }
+
+    @Test
+    public void dealerWinsWithBlackjack(){
+        player1.takeCard(card5);
+        player1.takeCard(card6);
+        dealer.takeCard(card5);
+        dealer.takeCard(card4);
+        assertEquals(true, game.dealerWins());
+        assertEquals(false, game.draw());
+    }
+
+    @Test
+    public void playerWinsWithBlackjack(){
+        dealer.takeCard(card5);
+        dealer.takeCard(card6);
+        player1.takeCard(card5);
+        player1.takeCard(card4);
+        assertEquals(false, game.dealerWins());
         assertEquals(false, game.draw());
     }
 
