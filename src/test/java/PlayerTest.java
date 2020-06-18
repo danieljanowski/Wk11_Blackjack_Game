@@ -60,4 +60,21 @@ public class PlayerTest {
         player1.takeCard(card4);
         assertEquals(2, player1.numberOfAces());
     }
+
+    @Test
+    public void hasBlackjack(){
+        player1.takeCard(card1);
+        player1.takeCard(card2);
+        player1.takeCard(card3);
+        player1.takeCard(card4);
+        assertEquals(true, player1.hasBlackjack());
+    }
+
+    @Test
+    public void doesntHaveBlackjack(){
+        player1.takeCard(card1);
+        player1.takeCard(card4);
+        assertEquals(false, player1.hasBlackjack());
+    }
+
 }

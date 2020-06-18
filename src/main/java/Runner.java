@@ -66,7 +66,6 @@ public class Runner {
                 if (game.dealerWins()) System.out.println("Dealer wins!");
                 else if (!game.dealerWins() & !game.draw()) System.out.println("Player wins!");
                 else if (game.draw()) System.out.println("Draw!");
-                else System.out.println("Whaaaat?!");
             }
 
             System.out.print("Would you like to play again? (1/0) ");

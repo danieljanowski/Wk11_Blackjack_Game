@@ -53,6 +53,17 @@ public class Dealer {
         System.out.println(" - " + card.getValueFromCard() + " points");
     }
 
+    public boolean hasBlackjack() {
+        for (Card card : this.hand) {
+            if (card.getRank() == Rank.ACE) {
+                for (Card card2 : this.hand) {
+                    if (card2.getRank() == Rank.KING) return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public void clearCards() {
         this.hand.clear();
     }
